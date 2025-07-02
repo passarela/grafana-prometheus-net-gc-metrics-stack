@@ -32,6 +32,16 @@ Este projeto implementa uma stack de monitoramento para aplicações .NET, focad
 *   [Docker](https://docs.docker.com/get-docker/)
 *   [Docker Compose](https://docs.docker.com/compose/install/)
 
+## Containers do Docker Compose
+
+*   **prometheus**: Serviço do Prometheus, responsável por coletar e armazenar as métricas. A configuração em `prometheus.yml` define o `aspnetgcmetrics` como alvo.
+
+*   **grafana**: Serviço do Grafana, utilizado para visualizar os dados. Ele é provisionado com um datasource para o Prometheus e um dashboard para as métricas de GC do .NET.
+
+*   **aspnetgcmetrics**: Uma aplicação .NET de exemplo que expõe as métricas de GC no formato esperado pelo Prometheus.
+
+*   **bombardier**: Uma ferramenta de teste de carga que gera requisições para a `aspnetgcmetrics`, simulando o uso e a geração de métricas.
+
 ## Como Executar
 
 1.  **Clone o repositório:**
